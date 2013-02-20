@@ -17,9 +17,11 @@ type Border =
         | None  -> "none"
         | Solid -> "solid"
 type Cursor =
+    | Default
     | Pointer
     override this.ToString() =
         match this with
+        | Default -> "default"
         | Pointer -> "pointer"
 type Clear =
     | Both
