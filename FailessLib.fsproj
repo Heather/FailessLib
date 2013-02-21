@@ -32,9 +32,6 @@
     <DocumentationFile>bin\Release\FailessLib.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FakeLib">
-      <HintPath>..\..\..\FAKE\build\FakeLib.dll</HintPath>
-    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="FSharp.Core" />
     <Reference Include="System" />
@@ -42,7 +39,6 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Failess.fs" />
     <Compile Include="CSSCore.fs" />
     <Compile Include="CSSStrings.fs" />
     <Compile Include="CSSTypes.fs" />
@@ -50,13 +46,6 @@
     <Compile Include="CSSReset.fs" />
     <Compile Include="CSSHelper.fs" />
     <Compile Include="CSSModules.fs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Heather\src\Heather.fsproj">
-      <Name>Heather</Name>
-      <Project>{f7c71087-b027-4f54-8e3d-1b1a4b4a944f}</Project>
-      <Private>True</Private>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\FSharp\1.0\Microsoft.FSharp.Targets" Condition="!Exists('$(MSBuildBinPath)\Microsoft.Build.Tasks.v4.0.dll')" />
   <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft F#\v4.0\Microsoft.FSharp.Targets" Condition=" Exists('$(MSBuildBinPath)\Microsoft.Build.Tasks.v4.0.dll')" />

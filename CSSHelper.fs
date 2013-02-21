@@ -3,7 +3,6 @@ module Failess.CSS
 
 open System
 open System.Text.RegularExpressions
-open Heather
 
 (* if you want to use different tab size *)
 let mutable tab = "    "
@@ -96,12 +95,12 @@ let inline (*) el els =
 
 let CSS file triller =
     let css =   triller
-                |> Seq.map /> fun str -> 
+                |> Seq.map(fun str -> 
                     match pasteNewLine with
                     | false ->  s str
                     | true ->   sprintf "%s%s"
                                 <| System.Environment.NewLine
-                                <| s str
+                                <| s str)
     System.IO.File.WriteAllLines(
         file, css);
 
