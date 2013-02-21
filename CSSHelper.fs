@@ -4,6 +4,11 @@ module Failess.CSS
 open System
 open System.Text.RegularExpressions
 
+(* F# Operators Priority Table:
+|,',',||,&,&&,< op, >op, =, |op, &op,&&& , |||, ^^^, ~~~, 
+<<<, >>>,^ op,::,- op, +op, (binary),* op, /op, %op,** op,
+prefix operators (+op, -op, %, %%, &, &&, !op, ~op)  *)
+
 (* if you want to use different tab size *)
 let mutable tab = "    "
 
@@ -75,7 +80,7 @@ let inline (.>) a b = sprintf "%s > %s" a b
 let inline (.<) a b = sprintf "%s < %s" a b
 
 let inline (><) a b = sprintf "%s*%s" a b (*Weird hack*)
-let inline (*) el els =
+let inline (<+) el els =
     let tree str = 
         let lines =
             [for line in Regex.Split(str, "\r\n") ->
