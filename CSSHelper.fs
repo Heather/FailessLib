@@ -80,7 +80,7 @@ let inline (.>) a b = sprintf "%s > %s" a b
 let inline (.<) a b = sprintf "%s < %s" a b
 
 let inline (><) a b = sprintf "%s*%s" a b (*Weird hack*)
-let inline (<+) el els =
+let inline (<<) el els =
     let tree str = 
         let lines =
             [for line in Regex.Split(str, "\r\n") ->
