@@ -20,6 +20,7 @@ Some features list (based on Clay) just to show why do I make it
  - Various options and styles.
 
 ``` fsharp
+    pasteNewLine <- false
     let menuStyle = [ 
         // Modules
         Display.block
@@ -37,7 +38,7 @@ Some features list (based on Clay) just to show why do I make it
         // Custom
         Border.set (px 1) Border.Solid "#4e667d"
         ]
-    CSS "D:\....\Styles\Site.css" [
+    CSS "..\Styles\Site.css" [
         "/* DEFAULTS\n--------------------------------------------*/"
         body-|[
             background  -- "#b6b7bc"
@@ -46,7 +47,7 @@ Some features list (based on Clay) just to show why do I make it
                 ["Helvetica Neue"; "Lucida Grande"; 
                 "Segoe UI"; "Arial"; "Helvetica"; "Verdana"; "sans-serif";] 
             ]
-        a <+[
+        a <<[
             %visited >< %link @ color -- "#034af3"
             %hover -| [ TextDecoration.none
                         color -- "#1d60ff"
@@ -94,7 +95,7 @@ Some features list (based on Clay) just to show why do I make it
                 | _                 -> [ px 20; auto; px 0; auto ]
             Border.set "1px" Border.Solid "#496077"
             ]
-        &header <+ [
+        &header << [
             -  [Position.relative
                 margin      -- px 0
                 padding     -- px 0
@@ -133,22 +134,22 @@ Some features list (based on Clay) just to show why do I make it
             lineHeight  -- LineHeight.Normal
             ]
         "/* TAB MENU\n--------------------------------------------*/"
-        div <+ [
+        div << [
             &"hideSkiplink"-|[
                 backgroundColor -- "#3a4f63"
                 width -- prc 100
                 ]
             &"accountInfo" @ width -- prc 42
-            &menu <+ [
+            &menu << [
                 - [padding --- pxx [4; 0; 4; 8]]
-                +ul <+ [
+                +ul << [
                     - [
                         listStyle   -- ListStyle.None
                         margin      -- px 0
                         padding     -- px 0
                         width       -- auto
                         ]
-                    +li ++ a <+ [
+                    +li ++ a << [
                         - menuStyle
                         %visited -| menuStyle
                         %hover-|[
@@ -166,7 +167,7 @@ Some features list (based on Clay) just to show why do I make it
                 ]
             ]
         "/* FORM ELEMENTS\n--------------------------------------------*/"
-        "fieldset" <+ [
+        "fieldset" << [
             - [ margin --- [em 1.0; px 0]
                 padding -- em 1.0
                 Border.set <| px 1 <| Border.Solid <| "#ccc"
@@ -185,7 +186,7 @@ Some features list (based on Clay) just to show why do I make it
             ]
         Border.set "1px" Border.Solid "#ccc" 
         |> fun borderForInput ->
-            input <+ [
+            input << [
                 &"textEntry "-|[
                     borderForInput
                     width -- px 320
@@ -201,17 +202,17 @@ Some features list (based on Clay) just to show why do I make it
             Display.block
             Float.left
             ]
-        &"loginDisplay" <+ [
+        &"loginDisplay" << [
             - [ fontSize    -- em 1.1
                 padding     -- px 10
                 Display.block
                 TextAlign.right
                 Color.white
                 ]
-            +a <+ [
-                % link     @ Color.white
-                % visited  @ Color.white
-                % hover    @ Color.white
+            +a << [
+                %link     @ Color.white
+                %visited  @ Color.white
+                %hover    @ Color.white
                 ]
             ]
         &"failureNotification" -|[
