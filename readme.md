@@ -20,6 +20,13 @@ Some features list (based on Clay) just to show why do I make it
  - Various options and styles.
 
 ``` fsharp
+[<AutoOpen>]
+module Web.Site
+
+open CSS
+open Failess
+
+let Site style =
     pasteNewLine <- false
     let menuStyle = [ 
         // Modules
@@ -33,7 +40,7 @@ Some features list (based on Clay) just to show why do I make it
 
         // Values
         lineHeight      -- em 1.35
-        padding         --- pxx [4; 20]
+        padding         --- px2 4 20
 
         // Custom
         Border.set (px 1) Border.Solid "#4e667d"
@@ -91,7 +98,7 @@ Some features list (based on Clay) just to show why do I make it
             backgroundColor -- "#fff"
             margin ---
                 match style with
-                | styles.Full       -> pxx [0; 0; 0; 0]
+                | styles.Full       -> px4 0 0 0 0
                 | _                 -> [ px 20; auto; px 0; auto ]
             Border.set "1px" Border.Solid "#496077"
             ]
@@ -110,28 +117,28 @@ Some features list (based on Clay) just to show why do I make it
                 cursor      -- Cursor.Default
                 lineHeight  -- em 2.0
                 fontSize    -- em 2.0
-                padding     --- pxx [0; 0; 0; 10]
+                padding     --- px4 0 0 0 10
                 ]
             ]
         &main-|[
-            padding     --- pxx [0; 12]
-            margin      --- pxx [12; 8; 8; 8]
+            padding     --- px2 0 12
+            margin      --- px4 12 8 8 8
             minHeight   -- px 420
             ]
         &"left%"-|[
-            padding     --- pxx [ 6; 12]
-            margin      --- pxx [12; 8; 8; 8]
+            padding     --- px2 6 12
+            margin      --- px4 12 8 8 8
             width       -- px 200
             minHeight   -- px 200
             ]
         &footer-|[
+            TextAlign.center
+            LineHeight.normal
+      
             color       -- "#4e5766"
 
-            padding     --- pxx [8; 0; 0; 0]
+            padding     --- px4 8 0 0 0
             margin      --- [px 0; auto]
-
-            textAlign   -- TextAlign.Center
-            lineHeight  -- LineHeight.Normal
             ]
         "/* TAB MENU\n--------------------------------------------*/"
         div << [
@@ -141,7 +148,7 @@ Some features list (based on Clay) just to show why do I make it
                 ]
             &"accountInfo" @ width -- prc 42
             &menu << [
-                - [padding --- pxx [4; 0; 4; 8]]
+                - [padding --- px4 4 0 4 8]
                 +ul << [
                     - [
                         listStyle   -- ListStyle.None
@@ -172,7 +179,7 @@ Some features list (based on Clay) just to show why do I make it
                 padding -- em 1.0
                 Border.set <| px 1 <| Border.Solid <| "#ccc"
                 ]
-            +p @ margin --- pxx [2; 12; 10; 10]
+            +p @ margin --- pxx4 2 12 10 10
             &"login" & "inline" @ display -- Display.Inline
             &"login" ++ label 
                 >< & "register"         ++ label 
@@ -182,7 +189,7 @@ Some features list (based on Clay) just to show why do I make it
         "legend"-|[
             fontSize    -- em 1.1
             fontWeight  -- 600
-            padding     --- pxx [2; 4; 8; 4]
+            padding     --- px4 2 4 8 4
             ]
         Border.set "1px" Border.Solid "#ccc" 
         |> fun borderForInput ->
