@@ -79,7 +79,7 @@ let inline ($) a b = sprintf "%s, %s" a b
 let inline (.>) a b = sprintf "%s > %s" a b
 let inline (.<) a b = sprintf "%s < %s" a b
 
-let inline (><) a b = sprintf "%s*%s" a b (*Weird hack*)
+let inline (><) a b = sprintf "%s*%s" a b
 let inline (<<) el els =
     let tree str = 
         let lines =
