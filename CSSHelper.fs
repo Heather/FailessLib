@@ -52,11 +52,11 @@ let inline (--) el st =
     sprintf "%s: %s;"
     <| el 
     <| st.ToString()
-let inline (---) el st =
+let inline (-/) el st =
     sprintf "%s: %s;"
     <| el 
     <| String.Join(" ", (st : string list))
-let inline (----) el st =
+let inline (-+) el st =
     sprintf "%s: %s;"
     <| el 
     <| String.Join(", ", (st : string list))

@@ -20,9 +20,6 @@ Some features list (based on Clay) just to show why do I make it
  - Various options and styles.
 
 ``` fsharp
-[<AutoOpen>]
-module Web.Site
-
 open CSS
 open Failess
 
@@ -40,7 +37,7 @@ let Site style =
 
         // Values
         lineHeight      -- em 1.35
-        padding         --- px2 4 20
+        padding         -/ px2 4 20
 
         // Custom
         Border.set (px 1) Border.Solid "#4e667d"
@@ -50,9 +47,15 @@ let Site style =
         body-|[
             background  -- "#b6b7bc"
             fontSize    -- em 0.80
-            fontFamily ---- 
-                ["Helvetica Neue"; "Lucida Grande"; 
-                "Segoe UI"; "Arial"; "Helvetica"; "Verdana"; "sans-serif";] 
+            fontFamily  -+ 
+                [   "Helvetica Neue"; 
+                    "Lucida Grande"; 
+                    "Segoe UI"; 
+                    "Arial"; 
+                    "Helvetica"; 
+                    "Verdana"; 
+                    "sans-serif";
+                ] 
             ]
         a <<[
             %visited >< %link @ color -- "#034af3"
@@ -81,14 +84,12 @@ let Site style =
             ]
         h3 @ fontSize -- em 1.2
         h4 @ fontSize -- em 1.1
-        [h5; h6]=|[ fontSize -- em 1.0 ]
+        [h5; h6] @@ fontSize -- em 1.0
         "/* this rule styles <h1> and <h2> tags that are the \n first child of the left and right table %umns */"
         [   & "rightcolumn"  .> h1;
             & "rightcolumn"  .> h2;
             & "leftcolumn"   .> h1;
-            & "leftcolumn"   .> h2]=|[
-            marginTop -- px 0
-            ]
+            & "leftcolumn"   .> h2] @@ marginTop -- px 0
         "/* PRIMARY LAYOUT ELEMENTS\n--------------------------------------------*/"
         &page-|[
             width -- 
@@ -96,7 +97,7 @@ let Site style =
                 | styles.Full       -> prc 100
                 | _                 -> px 960
             backgroundColor -- "#fff"
-            margin ---
+            margin -/
                 match style with
                 | styles.Full       -> px4 0 0 0 0
                 | _                 -> [ px 20; auto; px 0; auto ]
@@ -110,24 +111,24 @@ let Site style =
                 background  -- "#4b6c9e"
                 ]
             +h1 -| [
+                border      -- Border.None
+                cursor      -- Cursor.Default
                 color       -- "#f9f9f9"
                 fontWeight  -- 700
                 margin      -- px 0
-                border      -- Border.None
-                cursor      -- Cursor.Default
                 lineHeight  -- em 2.0
                 fontSize    -- em 2.0
-                padding     --- px4 0 0 0 10
+                padding     -/ px4 0 0 0 10
                 ]
             ]
         &main-|[
-            padding     --- px2 0 12
-            margin      --- px4 12 8 8 8
+            padding     -/ px2 0 12
+            margin      -/ px4 12 8 8 8
             minHeight   -- px 420
             ]
         &"left%"-|[
-            padding     --- px2 6 12
-            margin      --- px4 12 8 8 8
+            padding     -/ px2 6 12
+            margin      -/ px4 12 8 8 8
             width       -- px 200
             minHeight   -- px 200
             ]
@@ -137,8 +138,8 @@ let Site style =
       
             color       -- "#4e5766"
 
-            padding     --- px4 8 0 0 0
-            margin      --- [px 0; auto]
+            padding     -/ px4 8 0 0 0
+            margin      -/ [px 0; auto]
             ]
         "/* TAB MENU\n--------------------------------------------*/"
         div << [
@@ -148,7 +149,7 @@ let Site style =
                 ]
             &"accountInfo" @ width -- prc 42
             &menu << [
-                - [padding --- px4 4 0 4 8]
+                - [padding -/ px4 4 0 4 8]
                 +ul << [
                     - [
                         listStyle   -- ListStyle.None
@@ -175,22 +176,23 @@ let Site style =
             ]
         "/* FORM ELEMENTS\n--------------------------------------------*/"
         "fieldset" << [
-            - [ margin --- [em 1.0; px 0]
+            - [ margin -/ [em 1.0; px 0]
                 padding -- em 1.0
                 Border.set <| px 1 <| Border.Solid <| "#ccc"
                 ]
-            +p @ margin --- pxx4 2 12 10 10
+            +p @ margin -/ px4 2 12 10 10
             &"login" & "inline" @ display -- Display.Inline
             &"login" ++ label 
                 >< & "register"         ++ label 
                 >< & "changePassword"   ++ label
-                @ display -- Display.Block
+                @ Display.block
             ]
         "legend"-|[
             fontSize    -- em 1.1
             fontWeight  -- 600
-            padding     --- px4 2 4 8 4
+            padding     -/ px4 2 4 8 4
             ]
+
         Border.set "1px" Border.Solid "#ccc" 
         |> fun borderForInput ->
             input << [
@@ -205,10 +207,10 @@ let Site style =
                 ]
         "/* MISC\n--------------------------------------------*/"
         &clear @ Clear.both
-        &title-|[
-            Display.block
-            Float.left
-            ]
+        &title  -|[ Display.block
+                    Float.left
+                    ]
+
         &"loginDisplay" << [
             - [ fontSize    -- em 1.1
                 padding     -- px 10
@@ -222,14 +224,14 @@ let Site style =
                 %hover    @ Color.white
                 ]
             ]
-        &"failureNotification" -|[
-            Color.red
-            fontSize -- em 1.2
-            ]
+
         &"bold" @ FontWeight.bold
-        &"submitButton"-|[
-            TextAlign.right
-            paddingRight -- px 10
-            ]
+
+        &"failureNotification"  -|[ Color.red
+                                    fontSize -- em 1.2
+                                    ]
+        &"submitButton"         -|[ TextAlign.right
+                                    paddingRight -- px 10
+                                    ]
         ]
 ```

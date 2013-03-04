@@ -10,7 +10,7 @@ module Border =
     let none    = (-) Border.None
     let solid   = (-) Border.Solid
     let set  w t c =
-        border --- [w; s t; c]
+        border -/ [w; s t; c]
 module Clear =
     let inline internal (-) p = (-) clear p
     let both = (-) Clear.Both
