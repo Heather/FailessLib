@@ -16,6 +16,20 @@ type Border =
         match this with
         | None  -> "none"
         | Solid -> "solid"
+type Clear =
+    | Both
+    override this.ToString() =
+        match this with
+        | Both -> "both"
+type Color =
+    | White
+    | Black
+    | Red
+    override this.ToString() =
+        match this with
+        | White -> "white"
+        | Black -> "black"
+        | Red   -> "red"
 type Cursor =
     | Default
     | Pointer
@@ -23,11 +37,6 @@ type Cursor =
         match this with
         | Default -> "default"
         | Pointer -> "pointer"
-type Clear =
-    | Both
-    override this.ToString() =
-        match this with
-        | Both -> "both"
 type Display =
     | Block
     | Inline
