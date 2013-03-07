@@ -12,7 +12,7 @@ prefix operators (+op, -op, %, %%, &, &&, !op, ~op)  *)
 (* if you want to use different tab size *)
 let mutable tab = "    "
 
-let inline (~-) st = 
+let inline (~+) st = 
     match st with
     | [] -> ""
     | [ _ ] -> sprintf " { %s }" st.Head
@@ -37,7 +37,7 @@ let inline (@) el st =
 let inline (-|) el st =
     sprintf "%s%s"
     <| el
-    <| - st
+    <| + st
 let inline (@@) el st =
     match el with
         | [] -> ""
@@ -66,12 +66,12 @@ let inline (%) el p =
 let inline (~%) a = sprintf ":%s" a
 
 (* override here T_T *)
-let inline (&) el p =
+let inline (-.) el p =
     sprintf "%s.%s" el p
-let inline (~&) a = sprintf ".%s" a
+let inline (~-.) a = sprintf ".%s" a
 
 (* this is confusing stuff must be deprecated  or replaced *)
-let inline (~+) a = sprintf " %s" a
+let inline (~+.) a = sprintf " %s" a
 
 let inline ($) a b = sprintf "%s, %s" a b
 
