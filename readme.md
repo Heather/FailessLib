@@ -109,7 +109,7 @@ let Site style =
                 width       -- prc 100
                 background  -- "#4b6c9e"
                 ]
-            %h1 -| [
+            +.h1 -| [
                 border      -- Border.None
                 cursor      -- Cursor.Default
                 color       -- "#f9f9f9"
@@ -125,7 +125,7 @@ let Site style =
             margin      -/ px4 12 8 8 8
             minHeight   -- px 420
             ]
-        -."left%"-|[
+        -."left"-|[
             padding     -/ px2 6 12
             margin      -/ px4 12 8 8 8
             width       -- px 200
@@ -156,7 +156,7 @@ let Site style =
                         padding     -- px 0
                         width       -- auto
                         ]
-                    %li ++ a << [
+                    +.li ++ a << [
                         +menuStyle
                         %visited -| menuStyle
                         %hover-|[
@@ -235,3 +235,4 @@ let Site style =
                                     ]
         ]
 ```
+
