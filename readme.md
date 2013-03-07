@@ -20,7 +20,6 @@ Some features list (based on Clay) just to show why do I make it
  - Various options and styles.
 
 ``` fsharp
-open CSS
 open Failess
 
 let Site style =
@@ -68,7 +67,7 @@ let Site style =
             lineHeight      -- em 1.6
             ]
         "/* HEADINGS\n--------------------------------------------*/"
-        [h1; h2; h3; h4; h5; h6]=|[ 
+        [h1; h2; h3; h4; h5; h6] =| [ 
             FontVariant.smallCaps
             fontSize    -- em 1.5
             color       -- "#666666"
@@ -86,12 +85,12 @@ let Site style =
         h4 @ fontSize -- em 1.1
         [h5; h6] @@ fontSize -- em 1.0
         "/* this rule styles <h1> and <h2> tags that are the \n first child of the left and right table %umns */"
-        [   & "rightcolumn"  .> h1;
-            & "rightcolumn"  .> h2;
-            & "leftcolumn"   .> h1;
-            & "leftcolumn"   .> h2] @@ marginTop -- px 0
+        [   -."rightcolumn"  .> h1;
+            -."rightcolumn"  .> h2;
+            -."leftcolumn"   .> h1;
+            -."leftcolumn"   .> h2] @@ marginTop -- px 0
         "/* PRIMARY LAYOUT ELEMENTS\n--------------------------------------------*/"
-        &page-|[
+        -.page-|[
             width -- 
                 match style with
                 | styles.Full       -> prc 100
@@ -103,14 +102,14 @@ let Site style =
                 | _                 -> [ px 20; auto; px 0; auto ]
             Border.set "1px" Border.Solid "#496077"
             ]
-        &header << [
-            -  [Position.relative
+        -.header << [
+            +[  Position.relative
                 margin      -- px 0
                 padding     -- px 0
                 width       -- prc 100
                 background  -- "#4b6c9e"
                 ]
-            +h1 -| [
+            %h1 -| [
                 border      -- Border.None
                 cursor      -- Cursor.Default
                 color       -- "#f9f9f9"
@@ -121,18 +120,18 @@ let Site style =
                 padding     -/ px4 0 0 0 10
                 ]
             ]
-        &main-|[
+        -.main-|[
             padding     -/ px2 0 12
             margin      -/ px4 12 8 8 8
             minHeight   -- px 420
             ]
-        &"left%"-|[
+        -."left%"-|[
             padding     -/ px2 6 12
             margin      -/ px4 12 8 8 8
             width       -- px 200
             minHeight   -- px 200
             ]
-        &footer-|[
+        -.footer-|[
             TextAlign.center
             LineHeight.normal
       
@@ -143,22 +142,22 @@ let Site style =
             ]
         "/* TAB MENU\n--------------------------------------------*/"
         div << [
-            &"hideSkiplink"-|[
+            -."hideSkiplink"-|[
                 backgroundColor -- "#3a4f63"
                 width -- prc 100
                 ]
-            &"accountInfo" @ width -- prc 42
-            &menu << [
-                - [padding -/ px4 4 0 4 8]
-                +ul << [
-                    - [
+            -."accountInfo" @ width -- prc 42
+            -.menu << [
+                +[padding -/ px4 4 0 4 8]
+                +.ul << [
+                    +[
                         listStyle   -- ListStyle.None
                         margin      -- px 0
                         padding     -- px 0
                         width       -- auto
                         ]
-                    +li ++ a << [
-                        - menuStyle
+                    %li ++ a << [
+                        +menuStyle
                         %visited -| menuStyle
                         %hover-|[
                             backgroundColor -- "#bfcbd6"
@@ -176,16 +175,16 @@ let Site style =
             ]
         "/* FORM ELEMENTS\n--------------------------------------------*/"
         "fieldset" << [
-            - [ margin -/ [em 1.0; px 0]
+            + [ margin -/ [em 1.0; px 0]
                 padding -- em 1.0
                 Border.set <| px 1 <| Border.Solid <| "#ccc"
                 ]
-            +p @ margin -/ px4 2 12 10 10
-            &"login" & "inline" @ display -- Display.Inline
-            &"login" ++ label 
-                >< & "register"         ++ label 
-                >< & "changePassword"   ++ label
-                @ Display.block
+            +.p @ margin -/ px4 2 12 10 10
+            -."login" -. "inline" @ display -- Display.Inline
+            -."login" ++ label 
+                >< -. "register" ++ label 
+                >< -. "changePassword" ++ label 
+                    @ Display.block
             ]
         "legend"-|[
             fontSize    -- em 1.1
@@ -196,42 +195,43 @@ let Site style =
         Border.set "1px" Border.Solid "#ccc" 
         |> fun borderForInput ->
             input << [
-                &"textEntry "-|[
+                -."textEntry "-|[
                     borderForInput
                     width -- px 320
                     ]
-                &"passwordEntry"-|[
+                -."passwordEntry"-|[
                     borderForInput
                     width -- px 320
                     ]
                 ]
         "/* MISC\n--------------------------------------------*/"
-        &clear @ Clear.both
-        &title  -|[ Display.block
-                    Float.left
-                    ]
+        -.clear @ Clear.both
+        -.title  -|[
+            Display.block
+            Float.left
+            ]
 
-        &"loginDisplay" << [
-            - [ fontSize    -- em 1.1
+        -."loginDisplay" << [
+            + [ fontSize    -- em 1.1
                 padding     -- px 10
                 Display.block
                 TextAlign.right
                 Color.white
                 ]
-            +a << [
+            +.a << [
                 %link     @ Color.white
                 %visited  @ Color.white
                 %hover    @ Color.white
                 ]
             ]
 
-        &"bold" @ FontWeight.bold
+        -."bold" @ FontWeight.bold
 
-        &"failureNotification"  -|[ Color.red
-                                    fontSize -- em 1.2
+        -."failureNotification"  -|[    Color.red
+                                        fontSize -- em 1.2
                                     ]
-        &"submitButton"         -|[ TextAlign.right
-                                    paddingRight -- px 10
+        -."submitButton"         -|[    TextAlign.right
+                                        paddingRight -- px 10
                                     ]
         ]
 ```
