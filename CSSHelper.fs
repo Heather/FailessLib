@@ -9,9 +9,6 @@ open System.Text.RegularExpressions
 <<<, >>>,^ op,::,- op, +op, (binary),* op, /op, %op,** op,
 prefix operators (+op, -op, %, %%, &, &&, !op, ~op)  *)
 
-(* if you want to use different tab size *)
-let mutable tab = "    "
-
 let inline (~+.) st = 
     match st with
     | [] -> ""
@@ -28,16 +25,13 @@ let inline (~+.) st =
         <| System.Environment.NewLine
         <| tab
 
-(*Note: This is main operators and they could look better
-  Though it's easy to overrid by something alike:
-    let inline (/) el st = el -| st
-  There are some examples doing this*)
 let inline (@) el st =
     sprintf "%s { %s }" el st
 let inline (-|) el st =
     sprintf "%s%s"
     <| el
     <| +. st
+
 let inline (@@) el st =
     match el with
         | [] -> ""
@@ -48,6 +42,7 @@ let inline (=|) el st =
         | [] -> ""
         | [ _ ] -> el.Head -| st
         | _ -> String.Join(", ", el) -| st
+
 let inline (--) el st =
     sprintf "%s: %s;"
     <| el 
@@ -70,7 +65,7 @@ let inline (-.) el p =
     sprintf "%s.%s" el p
 let inline (~-.) a = sprintf ".%s" a
 
-(* this is confusing stuff must be deprecated  or replaced *)
+
 let inline (~+) a = sprintf " %s" a
 
 let inline ($) a b = sprintf "%s, %s" a b

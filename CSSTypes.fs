@@ -1,7 +1,9 @@
 [<AutoOpen>]
 module Failess.CSSTypes
+
 open System
 open System.ComponentModel
+
 type Background =
     | NoRepeat 
     | Center

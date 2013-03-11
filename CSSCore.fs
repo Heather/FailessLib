@@ -3,11 +3,14 @@ module Failess.CSSCore
 open System
 open System.ComponentModel
 
+///Core stuff:
+let failessVersion = "0.0.2"
+
 ///Settings:
 let mutable pasteNewLine = false
 
-///Core stuff:
-let failessVersion = "0.0.1"
+(* if you want to use different tab size *)
+let mutable tab = "    "
 
 let inline (+++) a b = sprintf "%s%s" a b
 let inline (++) a b = sprintf "%s %s" a b

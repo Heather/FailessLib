@@ -1,6 +1,8 @@
 ﻿[<AutoOpen>]
 module Failess.CSSModules
+
 let inline internal (-) m p = m -- s p
+
 module Background =
     let inline internal (-) p = (-) background p
     let noRepeat    = (-) Background.NoRepeat

@@ -1,5 +1,6 @@
 ﻿[<AutoOpen>]
 module Failess.CSSStrings
+
 let active = "active"
 let auto = "auto"
 let a = "a"
