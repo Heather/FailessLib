@@ -79,9 +79,11 @@ type Overflow =
         match this with
         | hidden -> "hidden"
 type Position =
+    | Absolute
     | Relative
     override this.ToString() =
         match this with
+        | Absolute -> "absolute"
         | Relative -> "relative"
 type TextDecoration =
     | None
