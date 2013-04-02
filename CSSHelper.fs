@@ -94,14 +94,20 @@ let inline (<<) el els =
     String.Join(System.Environment.NewLine, fall)
 
 let CSS file triller =
-    let css =   triller
-                |> Seq.map(fun str -> 
-                    match pasteNewLine with
-                    | false ->  s str
-                    | true ->   sprintf "%s%s"
-                                <| System.Environment.NewLine
-                                <| s str)
-    System.IO.File.WriteAllLines(
-        file, css);
+    let plaincss =
+            triller
+            |> Seq.map(fun str -> 
+                match pasteNewLine with
+                | false ->  s str
+                | true ->   sprintf "%s%s"
+                            <| System.Environment.NewLine
+                            <| s str)
+    match obfuscation with
+    | true -> 
+        let ocss = obfuscate plaincss
+        System.IO.File.WriteAllText(file, ocss)
+    | false -> 
+        System.IO.File.WriteAllLines(
+            file, plaincss)
 
-let CSSSite triller = CSS "stie.css" triller
+let CSSS triller = CSS "stie.css" triller

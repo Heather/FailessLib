@@ -4,10 +4,11 @@ open System
 open System.ComponentModel
 
 ///Core stuff:
-let failessVersion = "0.0.2"
+let failessVersion = "0.0.3"
 
 ///Settings:
 let mutable pasteNewLine = false
+let mutable obfuscation = false
 
 (* if you want to use different tab size *)
 let mutable tab = "    "

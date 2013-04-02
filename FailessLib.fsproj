@@ -45,6 +45,7 @@
     <Compile Include="CSSTypes.fs" />
     <Compile Include="CSSValues.fs" />
     <Compile Include="CSSReset.fs" />
+    <Compile Include="CSSObfuscation.fs" />
     <Compile Include="CSSHelper.fs" />
     <Compile Include="CSSModules.fs" />
   </ItemGroup>
