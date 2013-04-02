@@ -74,10 +74,12 @@ type ListStyle =
         match this with
         | None -> "none"
 type Overflow =
+    | Auto
     | Hidden
     override this.ToString() =
         match this with
-        | hidden -> "hidden"
+        | Auto   -> "auto"
+        | Hidden -> "hidden"
 type Position =
     | Absolute
     | Relative
