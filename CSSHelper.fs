@@ -93,7 +93,7 @@ let inline (<<) el els =
                     | _ -> tree e]
     String.Join(System.Environment.NewLine, fall)
 
-let CSS file triller =
+let SS triller =
     let plaincss =
             triller
             |> Seq.map(fun str -> 
@@ -103,11 +103,8 @@ let CSS file triller =
                             <| System.Environment.NewLine
                             <| s str)
     match obfuscation with
-    | true -> 
-        let ocss = obfuscate plaincss
-        System.IO.File.WriteAllText(file, ocss)
-    | false -> 
-        System.IO.File.WriteAllLines(
-            file, plaincss)
+    | true -> obfuscate plaincss
+    | false -> String.Join(System.Environment.NewLine, plaincss)
 
+let CSS file triller = System.IO.File.WriteAllText(file, ( SS triller ))
 let CSSS triller = CSS "stie.css" triller
