@@ -2,6 +2,7 @@
 module Failess.CSS
 
 open System
+open System.IO
 open System.Text.RegularExpressions
 
 (* F# Operators Priority Table:
@@ -81,7 +82,7 @@ let inline (<<) el els =
             [for line in Regex.Split(str, "\r\n") ->
                 match line with 
                 | line when line.StartsWith(tab) -> line
-                | _ -> el +++ line]
+                | _ -> el + line]
         String.Join(System.Environment.NewLine, lines)
     let fall = [for e : string in els ->
                     match e with
@@ -106,5 +107,17 @@ let SS triller =
     | true -> obfuscate plaincss
     | false -> String.Join(System.Environment.NewLine, plaincss)
 
-let CSS file triller = System.IO.File.WriteAllText(file, ( SS triller ))
+exception InnerError of string
+let CSS file triller = 
+    if File.Exists file then
+        File.WriteAllText(file, ( SS triller ))
+    else 
+        printfn "file %s doesn't exists, continue? (Y/N)" file
+        let rec checkA() =
+            match Console.ReadLine() with
+            | "Y" -> ()
+            | "N" -> raise <| InnerError("Wrong path")
+            | _ -> printfn "what?"; checkA()
+        checkA()
+
 let CSSS triller = CSS "stie.css" triller
