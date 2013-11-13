@@ -14,15 +14,15 @@ before_install:
  - wget "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/Microsoft.FSharp.Targets"
  - wget "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/FSharp.Build.dll"
  - wget "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/FSharp.Core.dll"
- - wget "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/FSharp.Core.dll.optdata"
- - wget "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/FSharp.Core.dll.sigdata"
+ - wget "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/FSharp.Core.optdata"
+ - wget "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/FSharp.Core.sigdata"
 
 install:
  - sudo installer -pkg "MonoFramework-MDK-${MONO_VER}.macos10.xamarin.x86.pkg" -target /
  - sudo mv FSharp.Build.dll /usr/local/lib/mono/4.0/FSharp.Build.dll
  - sudo mv FSharp.Core.dll /usr/local/lib/mono/4.0/FSharp.Core.dll
- - sudo mv FSharp.Core.dll.optdata /usr/local/lib/mono/4.0/FSharp.Core.dll.optdata
- - sudo mv FSharp.Core.dll.sigdata /usr/local/lib/mono/4.0/FSharp.Core.dll.sigdata
+ - sudo mv FSharp.Core.optdata /usr/local/lib/mono/4.0/FSharp.Core.optdata
+ - sudo mv FSharp.Core.sigdata /usr/local/lib/mono/4.0/FSharp.Core.sigdata
 
 script:
  - xbuild FailessLib-mono.fsproj
