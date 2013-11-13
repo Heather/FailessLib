@@ -11,7 +11,7 @@ env:
 
 before_install:
  - wget "http://download.mono-project.com/archive/${MONO_VER}/macos-10-x86/MonoFramework-MDK-${MONO_VER}.macos10.xamarin.x86.pkg"
- - wget "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/Microsoft.FSharp.targets"
+ - wget "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/Microsoft.FSharp.Targets"
  - wget "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/FSharp.Build.dll"
  - wget "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/FSharp.Core.dll"
  - wget "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/FSharp.Core.dll.optdata"
