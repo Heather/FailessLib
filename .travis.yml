@@ -1,25 +1,16 @@
-notifications:
- email: false
+language: objective-c
 
-#env:
-# global:
-#  - EnableNuGetPackageRestore=true
-# matrix:
-#  - MONO_VER="3.2.4"
-# - wget "http://download.mono-project.com/archive/${MONO_VER}/macos-10-x86/MonoFramework-MDK-${MONO_VER}.macos10.xamarin.x86.pkg"
-# - sudo installer -pkg "MonoFramework-MDK-${MONO_VER}.macos10.xamarin.x86.pkg" -target /
- 
+env:
+ global:
+  - EnableNuGetPackageRestore=true 
+ matrix:
+  - MONO_VER="3.2.4"
+
 before_install:
- - sudo apt-get update
- - sudo apt-get install -qq mono-devel
- - sudo wget -O /usr/lib/mono/4.0/Microsoft.FSharp.Targets "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/Microsoft.FSharp.Targets"
- - sudo wget -O /usr/lib/mono/4.0/FSharp.Build.dll "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/FSharp.Build.dll"
- - sudo wget -O /usr/lib/mono/4.0/FSharp.Compiler.dll "http://github.com/fsharp/fsharp/blob/master/lib/bootstrap/4.0/FSharp.Compiler.dll"
- - sudo wget -O /usr/lib/mono/4.0/FSharp.Core.dll "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/FSharp.Core.dll"
- - sudo wget -O /usr/lib/mono/4.0/FSharp.Core.optdata "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/FSharp.Core.optdata"
- - sudo wget -O /usr/lib/mono/4.0/FSharp.Core.sigdata "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/FSharp.Core.sigdata"
- - sudo wget -O /usr/lib/mono/4.0/fsc.exe "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/fsc.exe"
- - sudo chmod 777 /usr/lib/mono/4.0/fsc.exe
+ - wget "http://download.mono-project.com/archive/${MONO_VER}/macos-10-x86/MonoFramework-MDK-${MONO_VER}.macos10.xamarin.x86.pkg"
+ - sudo installer -pkg "MonoFramework-MDK-${MONO_VER}.macos10.xamarin.x86.pkg" -target /
 
 script: xbuild FailessLib-mono.fsproj /p:Configuration=Release /tv:4.0 /p:TargetFrameworkVersion=v4.0
  
+notifications:
+ email: false
