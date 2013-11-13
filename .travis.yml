@@ -13,10 +13,10 @@ before_install:
  - sudo apt-get update
  - sudo apt-get install -qq mono-devel
  - wget -O Microsoft.FSharp.Targets "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/Microsoft.FSharp.Targets"
- - sudo wget -O /usr/local/lib/mono/4.0/FSharp.Build.dll "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/FSharp.Build.dll"
- - sudo wget -O /usr/local/lib/mono/4.0/FSharp.Core.dll "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/FSharp.Core.dll"
- - sudo wget -O /usr/local/lib/mono/4.0/FSharp.Core.optdata "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/FSharp.Core.optdata"
- - sudo wget -O /usr/local/lib/mono/4.0/FSharp.Core.sigdata "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/FSharp.Core.sigdata"
+ - sudo wget -O /usr/lib/mono/4.0/FSharp.Build.dll "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/FSharp.Build.dll"
+ - sudo wget -O /usr/lib/mono/4.0/FSharp.Core.dll "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/FSharp.Core.dll"
+ - sudo wget -O /usr/lib/mono/4.0/FSharp.Core.optdata "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/FSharp.Core.optdata"
+ - sudo wget -O /usr/lib/mono/4.0/FSharp.Core.sigdata "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/FSharp.Core.sigdata"
 
 script:
  - xbuild FailessLib-mono.fsproj
