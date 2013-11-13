@@ -16,9 +16,9 @@ before_install:
  - wget "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/FSharp.Core.dll"
  - wget "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/FSharp.Core.optdata"
  - wget "http://github.com/fsharp/fsharp/raw/master/lib/bootstrap/4.0/FSharp.Core.sigdata"
+ - sudo installer -pkg "MonoFramework-MDK-${MONO_VER}.macos10.xamarin.x86.pkg" -target /
 
 install:
- - sudo installer -pkg "MonoFramework-MDK-${MONO_VER}.macos10.xamarin.x86.pkg" -target /
  - sudo mv FSharp.Build.dll /usr/local/lib/mono/4.0/FSharp.Build.dll
  - sudo mv FSharp.Core.dll /usr/local/lib/mono/4.0/FSharp.Core.dll
  - sudo mv FSharp.Core.optdata /usr/local/lib/mono/4.0/FSharp.Core.optdata
