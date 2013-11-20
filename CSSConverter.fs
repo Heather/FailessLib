@@ -16,7 +16,7 @@ let inline ToFailess css =
                 if !block then
                     if s.Contains("}") then
                         block       := false
-                        yield (!blockStart).Replace("}", "-| [")
+                        yield (!blockStart).Replace("{", "-| [")
                         yield String.Join(System.Environment.NewLine, !blockQueue)
                         yield sprintf "%s]" tab
                     else
