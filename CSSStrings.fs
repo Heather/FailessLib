@@ -67,3 +67,72 @@ let ul = "ul"
 let visited = "visited"
 let whiteSpace = "white-space"
 let width = "width"
+
+let CSSStrings = [
+    active
+    auto
+    a
+    borderRight
+    borderLeft
+    borderTop
+    borderBottom
+    border
+    backgroundColor
+    background 
+    br
+    bottom
+    body
+    clear
+    cursor
+    color
+    display
+    div
+    footer
+    fontWeight
+    fontVariant
+    fontFamily
+    fontSize
+    hover
+    header
+    height
+    hr
+    h1; h2; h3; h4; h5; h6
+    img
+    input
+    il
+    link
+    label
+    left
+    listStyle
+    lineHeight
+    li
+    main
+    menu
+    minHeight
+    maxHeight
+    marginBottom
+    marginTop
+    marginLeft
+    marginRight
+    margin
+    overflow
+    page
+    paddingLeft
+    paddingRight
+    paddingBottom
+    paddingTop
+    padding
+    position
+    p
+    right
+    select
+    span
+    top
+    title
+    textDecoration
+    textAlign
+    ul
+    visited
+    whiteSpace
+    width
+    ]
