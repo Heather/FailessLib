@@ -49,6 +49,7 @@
     <Compile Include="CSSReset.fs" />
     <Compile Include="CSSObfuscation.fs" />
     <Compile Include="CSSHelper.fs" />
+    <Compile Include="CSSConverter.fs" />
     <Compile Include="CSSModules.fs" />
   </ItemGroup>
   <Choose>
@@ -63,7 +64,6 @@
       </PropertyGroup>
     </Otherwise>
   </Choose>
-  
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v12.0\FSharp\Microsoft.FSharp.Targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
 	     Other similar extension points exist, see Microsoft.Common.targets.

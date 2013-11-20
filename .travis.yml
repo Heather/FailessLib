@@ -9,8 +9,10 @@ env:
 before_install:
  - wget "http://download.mono-project.com/archive/${MONO_VER}/macos-10-x86/MonoFramework-MDK-${MONO_VER}.macos10.xamarin.x86.pkg"
  - sudo installer -pkg "MonoFramework-MDK-${MONO_VER}.macos10.xamarin.x86.pkg" -target /
+ - wget "http://raw.github.com/fsharp/fsharp/master/src/root.traversal.targets"
 
-script: xbuild FailessLib-mono.fsproj /p:Configuration=Release /tv:4.0 /p:TargetFrameworkVersion=v4.0
+#TODO: Make FailessLib.fsproj to work fine on mono
+script: xbuild FailessLib.fsproj /p:Configuration=Release /tv:4.0 /p:TargetFrameworkVersion=v4.0
  
 notifications:
  email: false
