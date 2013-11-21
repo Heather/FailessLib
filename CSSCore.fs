@@ -4,7 +4,7 @@ open System
 open System.ComponentModel
 
 ///Core stuff:
-let failessVersion = "0.0.7"
+let failessVersion = "0.0.8"
 
 ///Settings:
 let mutable pasteNewLine = false
