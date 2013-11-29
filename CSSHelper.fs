@@ -112,11 +112,11 @@ let CSS file triller =
     if File.Exists file then
         File.WriteAllText(file, ( SS triller ))
     else 
-        printfn "file %s doesn't exists, continue? (Y/N)" file
+        printfn "file %s doesn't exists, create it? (Y/N)" file
         let rec checkA() =
             match Console.ReadLine() with
-            | "Y" -> ()
-            | "N" -> raise <| InnerError("Wrong path")
+            | "Y" -> File.WriteAllText(file, ( SS triller ))
+            | "N" -> ()
             | _ -> printfn "what?"; checkA()
         checkA()
 
