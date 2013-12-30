@@ -4,15 +4,16 @@ env:
  global:
   - EnableNuGetPackageRestore=true 
  matrix:
-  - MONO_VER="3.2.4"
+  - MONO_VER="3.2.5"
+  
 
-before_install:
- - wget "http://download.mono-project.com/archive/${MONO_VER}/macos-10-x86/MonoFramework-MDK-${MONO_VER}.macos10.xamarin.x86.pkg"
- - sudo installer -pkg "MonoFramework-MDK-${MONO_VER}.macos10.xamarin.x86.pkg" -target /
- - wget "http://raw.github.com/fsharp/fsharp/master/src/root.traversal.targets"
+install:
+  - wget "http://download.xamarin.com/MonoFrameworkMDK/Macx86/MonoFramework-MDK-${MONO_VERSION}.macos10.xamarin.x86.pkg"
+  - sudo installer -pkg "MonoFramework-MDK-${MONO_VERSION}.macos10.xamarin.x86.pkg" -target /
 
 #TODO: Make FailessLib.fsproj to work fine on mono
 script: xbuild FailessLib.fsproj /p:Configuration=Release /tv:4.0 /p:TargetFrameworkVersion=v4.0
  
 notifications:
- email: false
+  irc: "chat.freenode.net#Heather"
+  email: false
