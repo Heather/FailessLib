@@ -10,6 +10,13 @@ open System.Text.RegularExpressions
 <<<, >>>,^ op,::,- op, +op, (binary),* op, /op, %op,** op,
 prefix operators (+op, -op, %, %%, &, &&, !op, ~op)  *)
 
+let prediction =
+    String.Format(
+"""/*--------------------------------------------*/
+/* This file is generated with Failess {0} */
+/*--------------------------------------------*/
+""", failessVersion)
+
 let inline (~+.) st = 
     match st with
     | [] -> ""
@@ -110,12 +117,12 @@ let SS triller =
 exception InnerError of string
 let CSS file triller = 
     if File.Exists file then
-        File.WriteAllText(file, ( SS triller ))
+        File.WriteAllText(file, (prediction + ( SS triller )))
     else 
         printfn "file %s doesn't exists, create it? (Y/N)" file
         let rec checkA() =
             match Console.ReadLine() with
-            | "Y" -> File.WriteAllText(file, ( SS triller ))
+            | "Y" -> File.WriteAllText(file, (prediction + ( SS triller )))
             | "N" -> ()
             | _ -> printfn "what?"; checkA()
         checkA()
