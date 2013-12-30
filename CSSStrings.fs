@@ -31,6 +31,7 @@ let height = "height"
 let hr = "hr"
 let h1, h2, h3, h4, h5, h6 = "h1", "h2", "h3", "h4", "h5", "h6"
 let img = "img"
+let inh = "inherit" (* inherit is keyword :( *)
 let input = "input"
 let il = "il"
 let link = "link"
@@ -100,6 +101,7 @@ let CSSStrings = [
     hr
     h1; h2; h3; h4; h5; h6
     img
+    inh
     input
     il
     link
