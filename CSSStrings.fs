@@ -16,6 +16,7 @@ let bottom = "bottom"
 let body = "body"
 let clear = "clear"
 let cursor = "cursor"
+let code = "code"
 let color = "color"
 let display = "display"
 let div = "div"
@@ -48,6 +49,7 @@ let marginLeft = "margin-left"
 let marginRight = "margin-right"
 let margin = "margin"
 let overflow = "overflow"
+let p = "p"
 let page = "page"
 let paddingLeft = "padding-left"
 let paddingRight = "padding-right"
@@ -55,7 +57,7 @@ let paddingBottom = "padding-bottom"
 let paddingTop = "padding-top"
 let padding = "padding"
 let position = "position"
-let p = "p"
+let pre = "pre"
 let right = "right"
 let select = "select"
 let span = "span"
@@ -116,6 +118,7 @@ let CSSStrings = [
     marginRight
     margin
     overflow
+    p
     page
     paddingLeft
     paddingRight
@@ -123,7 +126,7 @@ let CSSStrings = [
     paddingTop
     padding
     position
-    p
+    pre
     right
     select
     span
