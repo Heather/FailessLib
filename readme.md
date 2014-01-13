@@ -3,7 +3,6 @@
 
 Actual readme file: https://github.com/Heather/Failess
 
-
 example of FailessLib usage with Devil unicode extension:
 
 ``` fsharp
