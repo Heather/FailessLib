@@ -127,4 +127,4 @@ let CSS file triller =
             | _ -> printfn "what?"; checkA()
         checkA()
 
-let CSSS triller = CSS "stie.css" triller
+let CSSS triller = CSS "site.css" triller
